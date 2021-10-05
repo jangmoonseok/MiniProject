@@ -1,0 +1,280 @@
+header {
+  position: fixed;
+  display: flex;
+  background-color: #6ac6f3;
+  width: 100vw;
+  height: 64px;
+  line-height: 64px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.logo {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: 20px;
+  width: 400px;
+}
+.menu li {
+  display: inline-block;
+  color: white;
+  font-size: 1.25rem;
+  padding: 0px 16px;
+  cursor: pointer;
+}
+.menu li:hover {
+  opacity: 0.6;
+}
+.menu li.on {
+  border-bottom: 4px solid white;
+  height: 60px;
+}
+.toggle_btn {
+  position: absolute;
+  top: 16px;
+  right: 120px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: white;
+  display: none;
+}
+.account {
+  color: white;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 40px;
+}
+/* Main/aside */
+main {
+  padding-left: 240px;
+  padding-top: 64px;
+  z-index: 0;
+}
+main aside {
+  position: fixed;
+  left: 0;
+  top: 64px;
+  bottom: 0;
+  width: 240px;
+  border-right: 1px solid #9e9e9ea1;
+  background: #eee;
+  height: 100vh;
+  z-index: 0;
+}
+main aside .option_title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #808080;
+  padding: 32px 0 0 32px;
+}
+main aside ul {
+  margin: 32px 0px;
+}
+main aside ul li {
+  font-size: 1.25rem;
+  padding: 8px 32px;
+  line-height: 1.5em;
+  cursor: pointer;
+}
+main aside ul li:hover {
+  background-color: #444;
+  color: white;
+}
+main .content {
+  min-height: calc(100vh - 196px);
+}
+/* 사진들 보기 */
+#intro {
+  padding: 48px 64px;
+  font-size: 1.3rem;
+  border-bottom: 1px solid #9e9e9ea1;
+  line-height: 1.3em;
+}
+#intro h1 {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+#gallery {
+  padding: 16px;
+  background-color: #fafafa;
+}
+article {
+  margin: 8px;
+  padding: 24px;
+  display: inline-block;
+  background-color: #fff;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+}
+article.hidden {
+  display: none;
+}
+article:hover {
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.5);
+}
+article .photo {
+  width: 440px;
+  height: 320px;
+  border-radius: 4px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+article .info {
+  display: grid;
+  grid-template-columns: 80px auto;
+  grid-template-rows: 32px auto;
+  grid-template-areas:
+    "like author"
+    "like desc";
+  margin-top: 18px;
+  font-size: 1.2rem;
+}
+article .info .like {
+  grid-area: like;
+  text-align: center;
+  padding-top: 22px;
+  background-image: url("../img/interface/heart_off.png");
+  background-repeat: no-repeat;
+  background-position: 50%;
+  font-size: 1rem;
+  font-weight: 700;
+  color: gray;
+  cursor: pointer;
+}
+article .info .like.on {
+  background-image: url("../img/interface/heart_on.png");
+  color: white;
+}
+article .info .like:hover {
+  opacity: 0.5;
+}
+article .info .author {
+  grid-area: author;
+  font-weight: 700;
+  line-height: 32px;
+  cursor: pointer;
+}
+article .info .author span {
+  color: dodgerblue;
+  font-size: 16px;
+  margin-left: 6px;
+}
+article .info .desc {
+  grid-area: desc;
+  color: gray;
+  padding: 4px 0;
+}
+/* 사진 올리기 */
+#upload {
+  padding: 48px;
+}
+#upload .instruction {
+  font-size: 1.3rem;
+  margin-bottom: 24px;
+}
+#upload input {
+  font-size: 1em;
+  margin-bottom: 12px;
+}
+#upload .description {
+  width: 320px;
+  height: 32px;
+  padding: 0px 8px;
+}
+#upload .descLength {
+  color: gray;
+  margin-left: 6px;
+}
+.button {
+  display: inline-block;
+  padding: 14px 24px;
+  background-color: #6ac6f3;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+/* 내 정보 */
+#myinfo {
+  padding: 48px;
+  font-size: 1.2rem;
+}
+#myinfo table {
+  margin-bottom: 24px;
+}
+#myinfo table tr td {
+  padding: 20px;
+  border-bottom: 1px solid #9e9e9ea1;
+}
+#myinfo table tr td:first-child {
+  color: gray;
+}
+#myinfo table tr:last-child td {
+  border: none;
+}
+#myinfo table tr td label {
+  margin-right: 16px;
+}
+#myinfo table tr td input[type="text"] {
+  width: 440px;
+  height: 32px;
+  padding: 0 8px;
+  font-size: 1rem;
+  line-height: 32px;
+}
+#myinfo .non-edit .mi-dep.edit,
+#myinfo .edit .mi-dep.non-edit {
+  display: none;
+}
+main .dep {
+  display: none;
+}
+main.gallery .dep._gallery,
+main.upload .dep._upload,
+main.myinfo .dep._myinfo {
+  display: block;
+}
+/* Footer */
+footer {
+  position: relative;
+  background-color: #383838;
+  text-align: center;
+  padding: 64px 0;
+  font-size: 1.2rem;
+  color: white;
+  z-index: 1;
+}
+footer ul li {
+  display: inline-block;
+  padding: 0px 48px;
+}
+footer ul li:not(:last-child) {
+  border-right: 1px solid gray;
+}
+footer ul li > a {
+  color: white;
+}
+footer ul li > a:hover {
+  opacity: 0.6;
+}
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+  .toggle_btn {
+    display: block;
+  }
+  .menu {
+    text-align: center;
+    background-color: #6ac6f3;
+    display: none;
+  }
+  .menu.on {
+    position: relative;
+    display: block;
+    z-index: 1;
+  }
+}

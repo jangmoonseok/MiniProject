@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <script
+    src="https://kit.fontawesome.com/2b6b8a0ca7.js"
+    crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="CSS/reset.css">
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body onload="init()">
+    <header>
+        <a href="#" class="logo">FastCampus Portfolio</a>
+        <nav>
+            <ul class="menu">
+                <li class="gallery on" onclick="setMenu('gallery')">사진들 보기</li>
+                <li class="upload" onclick="setMenu('upload')">사진 올리기</li>
+                <li class="myinfo" onclick="setMenu('myinfo')">내 정보</li>
+            </ul>
+            <button class="toggle_btn">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+        </nav>
+        <a href="#" class="account">Logout</a>
+    </header>
+    <main class="gallery">
+        <aside>
+            <div class="option_title dep _gallery">보기 옵션</div>
+            <div class="option_title dep _upload">사진 올리기</div>
+            <div class="option_title dep _myinfo">내 정보</div>
+            <ul class="dep _gallery" id="sorts">
+                <li class="recent on" onclick="setSort('recent')">최신순 보기</li>
+                <li class="like" onclick="setSort('like')">좋아요 순 보기</li>
+            </ul>
+            <ul class="dep _gallery" id="filters">
+                <li class="all on" onclick="setFilter('all')">전체 사진</li>
+                <li class='mine' onclick="setFilter('mine')">내 사진 사진</li>
+                <li class="like" onclick="setFilter('like')">좋아요 한 사진</li>
+                <li class="follow" onclick="setFilter('follow')">팔로우 회원 사진</li>
+            </ul>
+        </aside>
+        <div class="content">
+            <section id="intro" class="dep _gallery">
+                <h1>패스트캠퍼스 포트폴리오입니다.</h1>
+                <p>수많은 이용자들이 공유하는 멋진 사진들을 구경하고<br>
+                내가 직접 찍은 작품들을 공유하세요!</p>
+            </section>
+            <section id="gallery" class="dep _gallery">
+                <article class='hidden'>
+                    <div class="photo"></div>
+                    <div class="info">
+                        <div class="like"></div>
+                        <div class="author"></div>
+                        <div class="desc"></div>
+                    </div>
+                </article>
+            </section>
+            <section id="upload" class="dep _upload">
+                <div class="instruction">나만의 특별한 사진을 업로드합니다.</div>
+                <input type="text" class="description" maxlength="20" placeholder="사진 설명을 20자 이내로 적어주세요." onkeyup="setDescLength()">
+                <span class="descLength">0/20</span>
+                <br>
+                <input type="file">
+                <br><br>
+                <div class="button">업로드</div>
+            </section>
+            <section id="myinfo" class="dep _myinfo">
+                <div class="non-edit">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>아이디</td>
+                                <td id="myinfoID"></td>
+                            </tr>
+                            <tr>
+                                <td>사용자명</td>
+                                <td id="myinfoUser"></td>
+                            </tr>
+                            <tr>
+                                <td>소개</td>
+                                <td>
+                                    <input type="text" class="mi-dep edit" id="ip-intro" maxlength="30" disabled>
+                                    <span class="mi-dep non-edit" id="sp-intro"> </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>취미/전문</td>
+                                <td>
+                                    <input type="radio" value="hobby" id="hobby" name="as" disabled>
+                                    <label for="hobby">취미</label>
+                                    <input type="radio" value="pro" id="pro" name="as" disabled>
+                                    <label for="pro">전문가</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>흥미</td>
+                                <td>
+                                    <input type="checkbox" class="cb-interest" id="nature" value="nature" disabled>
+                                    <label for="nature">자연</label>
+                                    <input type="checkbox" class="cb-interest" id="animal" value="animal" disabled>
+                                    <label for="animal">동물</label>
+                                    <input type="checkbox" class="cb-interest" id="human" value="human" disabled>
+                                    <label for="human">사람</label>
+                                    <input type="checkbox" class="cb-interest" id="thing" value="thing" disabled>
+                                    <label for="thing">사물</label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="button mi-dep non-edit" onclick="editMyinfo(true)">수정</div>
+                    <div class="button mi-dep edit" onclick="updateMyinfo()">확인</div>
+                    <div class="button mi-dep edit" onclick="editMyinfo(false)">취소</div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <ul>
+            <li><a href="#">회사소개</a></li>
+            <li><a href="#">인재채용</a></li>
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#">개인정보 보호</a></li>
+            <li><a href="#">고객센터</a></li>
+        </ul>
+    </footer>
+    <script src="JS/script.js"></script>
+    <script src="js/data.js"></script>
+</body>
+</html>
