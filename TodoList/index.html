@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@300;800&display=swap" rel="stylesheet">
+    <title>Have To Do It Today</title>
+</head>
+<body>
+    <main>
+        <header>
+            <div class="title">
+                <h1>
+                    Have To Do It Today
+                </h1>
+            </div>
+        </header>
+        <section id="Date">
+            <div class="Date_wrap">
+                <div class="ymd">
+                    
+                </div>
+                <div class="time">
+                </div>
+            </div>
+        </section>
+        <section id="Input">
+            <h2 class="subtitle">To Do List</h2>
+            <div class="list_container">
+                <div class="input_wrap">
+                    <form id="TodoForm">
+                        <input type="text" class="input_list" placeholder="할 일을 입력해 주세요">
+                    </form>
+                </div>
+                <ul class="todo_list">
+                </ul>
+            </div>
+        </section>
+        <section id="Memo" style="display: none;">
+            <div class="memo_wrap">
+                <div class="memo_header">
+                    <button class="close_btn" onclick="closeModal()">❌</button>
+                    <h1 class="memo_title"></h1>
+                </div>
+                <div class="memo_input-wrap">
+                    <p>상세메모</p>
+                        <textarea class="input_memo" cols="30" rows="10" placeholder="메모장 적기"></textarea>
+                        <button class="saveMemo">저장</button>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="todo.js"></script>
+    <script src="date.js"></script>
+</body>
+</html>
